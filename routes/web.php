@@ -14,10 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/rita', function () {
-    $users = ['rita', 'sima', 'pavel', 'test'];
-    return view('rita', ['users' => $users, 'date' => '18.08.2019']);
-});
+Route::get('/learningWords', 'WordController@index')->name('learningWords');
 
 Auth::routes();
 
