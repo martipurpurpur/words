@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/rita', function () {
-    return view('rita');
+    $users = ['rita', 'sima', 'pavel', 'test'];
+    return view('rita', ['users' => $users, 'date' => '18.08.2019']);
 });
 
 Auth::routes();
