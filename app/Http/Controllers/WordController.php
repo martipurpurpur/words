@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Word;
 use Illuminate\Http\Request;
 
 class WordController extends Controller
@@ -9,7 +10,8 @@ class WordController extends Controller
     public function index()
     {
         {
-            $words = ['template', 'engine', 'accept', 'helper'];
+            $words = Word::all();
+          //  dd($words);
             $classes = [
                 'badge-primary',
                 'badge-secondary',

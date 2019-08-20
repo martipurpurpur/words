@@ -8,6 +8,6 @@
             $index = array_rand($classes);
             $class = $classes[$index];
         @endphp
-        <span class="badge {{ $class }}">{{ $word }}</span>
+        <span class="badge {{ $class }}">{{ $word->eng }} : {{ $word->rus }}</span>
     @endforeach
 @endsection

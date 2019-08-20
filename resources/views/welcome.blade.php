@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/rita">Marti</a>
+                    <a href="/learningWords">Words</a>
 
                 </div>
             </div>
