@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\FriendList;
 use Illuminate\Http\Request;
 
-class ListsController extends Controller
+class FriendsController extends Controller
 {
     public function index()
     {
         $friends = FriendList::all();
-
+       // dd($friends);
         $tableClasses = [
             'table-primary',
             'table-secondary',
@@ -22,6 +22,6 @@ class ListsController extends Controller
             'table-dark',
         ];
 
-        return view('friendlist', ['friends' => $friends, 'tableClasses' => $tableClasses]);
+        return view('friends.index', ['friends' => $friends, 'tableClasses' => $tableClasses]);
     }
 }

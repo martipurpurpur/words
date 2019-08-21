@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Word;
 use Illuminate\Http\Request;
 
-class WordController extends Controller
+class WordsController extends Controller
 {
     public function index()
     {
@@ -22,7 +22,7 @@ class WordController extends Controller
                 'badge-light',
                 'badge-dark',
             ];
-            return view('learningWords', ['words' => $words, 'classes' => $classes]);
+            return view('words.index', ['words' => $words, 'classes' => $classes]);
         }
     }
 }

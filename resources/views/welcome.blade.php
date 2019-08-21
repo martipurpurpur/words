@@ -85,10 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="/learningWords">Words</a>
-                </div>
-                <div class="links">
-                    <a href="/friendlist">Friend list</a>
+                    <a href="{{ route('words') }}">Words</a>
+                    <a href="{{ route('friends') }}">Friends</a>
                 </div>
             </div>
         </div>

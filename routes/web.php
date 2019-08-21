@@ -14,10 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/learningWords', 'WordController@index')->name('learningWords');
+Route::get('/words', 'WordsController@index')->name('words');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/friendlist', 'ListsController@index')->name('friendlist');
+Route::get('/friends', 'FriendsController@index')->name('friends');
