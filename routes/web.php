@@ -19,3 +19,5 @@ Route::get('/learningWords', 'WordController@index')->name('learningWords');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/friendlist', 'ListsController@index')->name('friendlist');

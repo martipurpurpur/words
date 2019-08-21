@@ -86,7 +86,9 @@
 
                 <div class="links">
                     <a href="/learningWords">Words</a>
-
+                </div>
+                <div class="links">
+                    <a href="/friendlist">Friend list</a>
                 </div>
             </div>
         </div>
