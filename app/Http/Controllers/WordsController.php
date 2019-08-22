@@ -11,7 +11,7 @@ class WordsController extends Controller
     {
         {
             $words = Word::all();
-          //  dd($words);
+            //  dd($words);
             $classes = [
                 'badge-primary',
                 'badge-secondary',
@@ -24,5 +24,34 @@ class WordsController extends Controller
             ];
             return view('words.index', ['words' => $words, 'classes' => $classes]);
         }
+    }
+
+    public function create()
+    {
+        return view('words.create');
+    }
+
+    public function store(Request $request)
+    {
+        //dd($request->all());
+        $word = new Word();
+        $word->fill($request->only(['rus', 'eng']));
+        $word->save();
+        return redirect(route('words'));
+    }
+
+    public function table()
+    {
+        $words = Word::all();
+
+        return view('words.table', ['words' => $words]);
+    }
+
+    public function delete($word_id)
+    {
+        $word = Word::find($word_id);
+        $word->delete();
+        return redirect(route('words'));
+        //dd($word);
     }
 }
