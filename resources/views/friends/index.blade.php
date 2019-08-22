@@ -4,15 +4,16 @@
 
 @section('content')
     @php
-        function getColor($tableClasses) {     /* функция для получения рандомного класса с цветом*/
-            $index = array_rand($tableClasses);
-            $tableClass = $tableClasses[$index];
-            return $tableClass;
+        function getColor() {     /* функция для получения рандомного класса с цветом*/
+            $MIN_COLOR = 10551295;
+            $MAX_COLOR = 16777200;
+            $color = '#' . (string)dechex(random_int($MIN_COLOR, $MAX_COLOR)); //рандом для цвета
+            return $color;
         }
     @endphp
     <table class="table">
         <thead>
-        <tr class="{{getColor($tableClasses)}}" style="text-align: center">
+        <tr style="text-align: center; background-color: {{getColor()}}">
             <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col">Age</th>
@@ -22,14 +23,14 @@
         </thead>
         <tbody>
         @foreach($friends as $friend)
-            <tr class="{{getColor($tableClasses)}}" style="text-align: center">
-                <th scope="row">{{ $friend->id }}</th>    {{-- получаем поле объекта фрэнд,--}}
-                <td>{{ $friend->name }}</td>               {{-- который является элементом коллекции френдс--}}
+            <tr style="text-align: center; background-color: {{getColor()}}">
+                <th scope="row">{{ $friend->id }}</th> {{-- получаем поле объекта фрэнд,--}}
+                <td>{{ $friend->name }}</td> {{-- который является элементом коллекции френдс--}}
                 <td>{{ $friend->age }}</td>
                 <td>{{ $friend->city }}</td>
                 <td>
                     <form method="POST" action="/friends/delete/{{$friend->id}}">
-                        {{ csrf_field() }}  <!--хелпер-->
+                    {{ csrf_field() }}  <!--хелпер-->
                         {{ method_field('DELETE') }}
                         {{--
                         создается скрытое поле с методом DELETE,

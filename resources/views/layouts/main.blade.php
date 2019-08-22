@@ -23,6 +23,7 @@
                 <a class="nav-link active" id="v-pills-home-tab" href="/">Home</a>
                 <a class="nav-link" id="v-pills-home-tab" href="{{ route('words') }}">Words</a>
                 <a class="nav-link" id="v-pills-home-tab" href="{{ route('friends') }}">Friends</a>
+                <a class="nav-link" id="v-pills-home-tab" href="{{ route('clients') }}">Clients</a>
                 <a class="nav-link" id="v-pills-home-tab" href="{{ route('words.create') }}">Add words</a>
                 <a class="nav-link" id="v-pills-home-tab" href="{{ route('words.table') }}">Delete words</a>
             </div>

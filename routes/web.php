@@ -34,3 +34,9 @@ Route::post('/friends/store', 'FriendsController@store')->name('friends.store');
 
 Route::delete('/friends/delete/{id}', 'FriendsController@delete')->name('friends.delete');
 
+Route::get('/clients', 'ClientsController@index')->name('clients');
+
+Route::post('/clients/store', 'ClientsController@store')->name('clients.store');
+
+Route::delete('/clients/delete/{id}', 'ClientsController@delete')->name('clients.delete');
+

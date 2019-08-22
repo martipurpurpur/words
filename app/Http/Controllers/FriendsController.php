@@ -13,18 +13,8 @@ class FriendsController extends Controller
                                         *для вызова статических методов не требуется создание экземпляра класса
                                          */
         // dd($friends);
-        $tableClasses = [
-            'table-primary',
-            'table-secondary',
-            'table-success',
-            'table-danger',
-            'table-warning',
-            'table-info',
-            'table-light',
-            'table-dark',
-        ];
-    //возвращаем вью с данными: ассоциативным массивом содержащим еще два массива
-        return view('friends.index', ['friends' => $friends, 'tableClasses' => $tableClasses]);
+    //возвращаем вью с данными: ассоциативным массивом содержащим еще массив
+        return view('friends.index', ['friends' => $friends]);
     }
 
     public function store(Request $request)

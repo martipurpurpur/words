@@ -87,6 +87,8 @@
                 <div class="links">
                     <a href="{{ route('words') }}">Words</a>
                     <a href="{{ route('friends') }}">Friends</a>
+                    <a href="{{ route('clients') }}">Clients</a>
+
                 </div>
             </div>
         </div>
