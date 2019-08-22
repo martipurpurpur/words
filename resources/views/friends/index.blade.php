@@ -4,7 +4,7 @@
 
 @section('content')
     @php
-        function getColor($tableClasses) {
+        function getColor($tableClasses) {     /* функция для получения рандомного класса с цветом*/
             $index = array_rand($tableClasses);
             $tableClass = $tableClasses[$index];
             return $tableClass;
@@ -23,14 +23,19 @@
         <tbody>
         @foreach($friends as $friend)
             <tr class="{{getColor($tableClasses)}}" style="text-align: center">
-                <th scope="row">{{ $friend->id }}</th>
-                <td>{{ $friend->name }}</td>
+                <th scope="row">{{ $friend->id }}</th>    {{-- получаем поле объекта фрэнд,--}}
+                <td>{{ $friend->name }}</td>               {{-- который является элементом коллекции френдс--}}
                 <td>{{ $friend->age }}</td>
                 <td>{{ $friend->city }}</td>
                 <td>
                     <form method="POST" action="/friends/delete/{{$friend->id}}">
-                        {{ csrf_field() }}
+                        {{ csrf_field() }}  <!--хелпер-->
                         {{ method_field('DELETE') }}
+                        {{--
+                        создается скрытое поле с методом DELETE,
+                        т к в большинстве браузеров форма не принимает методов кроме GET и POST.
+                        таким скрытым полем мы "подделываем" форму
+                        --}}
                         <div class="form-group">
                             <input type="submit" class="btn btn-danger delete-user" value="Delete friend">
                         </div>
@@ -43,9 +48,8 @@
 
             </td>
 
-            <form action="{{route('friends.store')}}" method="POST">
+            <form action="{{route('friends.store')}}" method="POST"> {{--направляем в нужный роут при нажатии--}}
                 {{ csrf_field() }}
-                {{ method_field('POST') }}
                 <td>
                     <label class="sr-only" for="name">Name</label>
                     <input type="text" name="name" class="form-control mb-2" id=name">

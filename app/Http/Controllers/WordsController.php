@@ -12,17 +12,31 @@ class WordsController extends Controller
         {
             $words = Word::all();
             //  dd($words);
-            $classes = [
-                'badge-primary',
-                'badge-secondary',
-                'badge-success',
-                'badge-danger',
-                'badge-warning',
-                'badge-info',
-                'badge-light',
-                'badge-dark',
-            ];
-            return view('words.index', ['words' => $words, 'classes' => $classes]);
+            $colors = [
+                '#e0ffff',
+                '#e7d5f9',
+                '#a1cbdd',
+                '#eeede7',
+                '#f7aec2',
+                '#f9c099',
+                '#a3c185',
+                '#ffa5a9',
+                '#fd742d',
+                '#b0d3bf',
+                '#a3ccf4',
+                '#81acc3',
+                '#faf4e8',
+                '#f590b1',
+                '#d77237',
+                '#00b6b0',
+                '#a6e9d7',
+                '#bea698',
+                '#ffc0d1',
+                '#ffc87c',
+                '#f87070',
+                ];
+
+            return view('words.index', ['words' => $words, 'colors' => $colors]);
         }
     }
 

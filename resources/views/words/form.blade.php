@@ -1,3 +1,6 @@
+<!--csrf - хелпер, для генерирования токена,
+ставится после тега form, нужен для защиты от
+подделки межсайтовых запросов-->
 {{ csrf_field() }}
 <div class="form-group">
     <label for="eng">in English</label>
