@@ -12,17 +12,17 @@
     @endphp
     <table class="table">
         <thead>
-        <tr class="{{getColor($tableClasses)}}">
-            <th scope="col" style="text-align: center">id</th>
-            <th scope="col" style="text-align: center">Name</th>
-            <th scope="col" style="text-align: center">Age</th>
-            <th scope="col" style="text-align: center">City</th>
-            <th scope="col" style="text-align: center">Action</th>
+        <tr class="{{getColor($tableClasses)}}" style="text-align: center">
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">City</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($friends as $friend)
-            <tr class="{{getColor($tableClasses)}}">
+            <tr class="{{getColor($tableClasses)}}" style="text-align: center">
                 <th scope="row">{{ $friend->id }}</th>
                 <td>{{ $friend->name }}</td>
                 <td>{{ $friend->age }}</td>
@@ -59,7 +59,7 @@
                     <input type="text" name="city" class="form-control mb-2" id="city">
                 </td>
                 <td>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Add friend</button>
                 </td>
             </form>
         </tr>
