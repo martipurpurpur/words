@@ -19,16 +19,19 @@
                 <td>{{ $client->fullname }}</td>
                 <td>{{ $client->city }}</td>
                 <td>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div class="btn-group">
+
                     <form method="POST" action="/clients/delete/{{$client->id}}">
                     {{ csrf_field() }}  <!--хелпер, защита от поддельных запросов-->
-                        {{ method_field('DELETE') }}
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                    {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
+
                     <form method="GET" action="/clients/edit/{{$client->id}}">
                     {{ csrf_field() }}
-                        <button type="button" class="btn btn-outline-warning">Edit</button>
+                        <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                     </form>
+
                     </div>
                 </td>
             </tr>

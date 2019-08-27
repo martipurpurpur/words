@@ -40,8 +40,8 @@ Route::post('/clients/store', 'ClientsController@store')->name('clients.store');
 
 Route::delete('/clients/delete/{id}', 'ClientsController@delete')->name('clients.delete');
 
-Route::get('/clients/edit/{id}', 'ClientsController@edit')->name('clients.edit');  //доделать
+Route::get('/clients/edit/{id}', 'ClientsController@edit')->name('clients.edit');
 
-Route::put('/clients/{id}', 'ClientsController@update')->name('clients.update');   //верно ли нужно ли
+Route::put('/clients/{id}', 'ClientsController@update')->name('clients.update');
 
 

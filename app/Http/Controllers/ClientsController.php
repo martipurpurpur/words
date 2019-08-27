@@ -44,6 +44,6 @@ class ClientsController extends Controller
         $client->fullname = $request->get('fullname');
         $client->city = $request->get('city');
         $client->save();
-        return redirect('clients');
+        return redirect(route('clients'));
     }
 }
