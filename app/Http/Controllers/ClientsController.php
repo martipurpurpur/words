@@ -26,4 +26,24 @@ class ClientsController extends Controller
         $client->delete();
         return redirect(route('clients'));
     }
+
+    public function edit($client_id)
+    {
+        $client = Client::find($client_id);
+        return view('clients.edit', compact('client', $client));
+    }
+
+    public function update(Request $request, $client_id)
+    {
+        $request->validate([
+            'fullname' => 'required|min:3',
+            'city' => 'required',
+        ]);
+        $client = Client::find($client_id);
+
+        $client->fullname = $request->get('fullname');
+        $client->city = $request->get('city');
+        $client->save();
+        return redirect('clients');
+    }
 }
