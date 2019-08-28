@@ -18,7 +18,7 @@
                 <td>{{ $word->eng }}</td>
                 <td>{{ $word->rus }}</td>
                 <td>
-                    <form method="POST" action="/words/delete/{{$word->id}}">
+                    <form method="POST" action="/words/delete/{{ $word->id }}">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <div class="form-group">

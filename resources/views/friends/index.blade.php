@@ -49,7 +49,7 @@
 
             </td>
 
-            <form action="{{route('friends.store')}}" method="POST"> {{--направляем в нужный роут при нажатии--}}
+            <form action="{{ route('friends.store') }}" method="POST"> {{--направляем в нужный роут при нажатии--}}
                 {{ csrf_field() }}
                 <td>
                     <label class="sr-only" for="name">Name</label>
