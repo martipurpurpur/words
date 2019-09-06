@@ -21,16 +21,16 @@
                 <td>
                     <div class="btn-group">
 
-                    <form method="POST" action="/clients/delete/{{ $client->id }}">
-                    {{ csrf_field() }}  <!--хелпер, защита от поддельных запросов-->
-                    {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
+                        <form method="POST" action="/clients/delete/{{ $client->id }}">
+                        {{ csrf_field() }}  <!--хелпер, защита от поддельных запросов-->
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
 
-                    <form method="GET" action="/clients/edit/{{ $client->id }}">
-                    {{ csrf_field() }}
-                        <button type="submit" class="btn btn-warning btn-sm">Edit</button>
-                    </form>
+                        <form method="GET" action="/clients/edit/{{ $client->id }}">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+                        </form>
 
                     </div>
                 </td>

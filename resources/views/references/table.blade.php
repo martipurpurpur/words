@@ -1,33 +1,36 @@
 @extends('layouts.main')
 
-@section('title', 'Edit Words')
+@section('title', 'Edit Function Reference')
 
 @section('content')
 
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Eng</th>
-            <th scope="col">Rus</th>
+            <th scope="col">Termin</th>
+            <th scope="col">Definition</th>
+            <th scope="col">Signature</th>
+            <th scope="col">Example</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
-
-        @foreach($words as $word)
+        @foreach($references as $reference)
             <tr>
-                <td>{{ $word->eng }}</td>
-                <td>{{ $word->rus }}</td>
+                <td>{{ $reference->termin }}</td>
+                <td>{{ $reference->definition }}</td>
+                <td>{{ $reference->signature }}</td>
+                <td><code>{{$reference->example}}</code></td>
                 <td>
                     <div class="btn-group">
 
-                        <form method="POST" action="/words/delete/{{ $word->id }}">
+                        <form method="POST" action="/references/delete/{{ $reference->id }}">
                         {{ csrf_field() }}  <!--хелпер, защита от поддельных запросов-->
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
 
-                        <form method="GET" action="/words/edit/{{ $word->id }}">
+                        <form method="GET" action="/references/edit/{{ $reference->id }}">
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                         </form>
@@ -36,6 +39,10 @@
                 </td>
             </tr>
         @endforeach
+        <form action="{{route('references.store')}}" method="POST">
+           @include('references.form')
+        </form>
         </tbody>
     </table>
 @endsection
+
