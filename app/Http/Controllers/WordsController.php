@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Word;
 use Illuminate\Http\Request;
-use  Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class WordsController extends Controller
 {
     public function index()
     {
-        {
-            $words = Word::all();
-            //  dd($words);
-            return view('words.index', ['words' => $words]);
-        }
+
+        $words = DB::table('words')
+            ->orderByRaw('-LOG(1.0 - RAND())/ counter LIMIT 3')->get();
+        return view('words.index', ['words' => $words]);
+
     }
 
     public function create()
@@ -24,50 +24,31 @@ class WordsController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->all());
-     /**   $arrays = [
-        ['eng' =>'to point','rus' => 'указывать'],
-['eng' =>'unless','rus' =>	'за исключением, пока не, если не'],
-['eng' =>'unsupported','rus' =>	'неподдерживаемый'],
-['eng' =>'until','rus' =>	'до'],
-['eng' =>'usage','rus' =>	'употребление, использование'],
-['eng' =>'using','rus' =>	'с помощью'],
-['eng' =>'utilizing','rus' =>	'использующий'],
-['eng' =>'verify','rus' =>	'проверять'],
-        ];
-      **/
-
         $word = new Word();
         $word->fill($request->only(['rus', 'eng']));
-        //$word->fill($array);
         $word->save();
-
         return redirect(route('words.table'));
     }
 
     public function table()
     {
-        $words = Word::all();
-       // $wordCollection = collect(['words' => $words]);
-      //  $sorted = $wordCollection->sort();
-
+        $words = Word::orderBy('eng')->get();
         return view('words.table', ['words' => $words]);
     }
 
     public function edit($word_id)
     {
-        $word = Word::find($word_id);
-        return view('words.edit', compact('word', $word));
+        $words = Word::find($word_id);
+        return view('words.edit', ['words' => $words]);
     }
 
     public function update(Request $request, $word_id)
     {
         $request->validate([
-            'eng' => 'required|min:3',
+            'eng' => 'required|min:2',
             'rus' => 'required',
         ]);
         $word = Word::find($word_id);
-
         $word->eng = $request->get('eng');
         $word->rus = $request->get('rus');
         $word->save();
@@ -79,6 +60,12 @@ class WordsController extends Controller
         $word = Word::find($word_id);
         $word->delete();
         return redirect(route('words.table'));
-        //dd($word);
+    }
+
+    public function counter($word_id)
+    {
+        Word::find($word_id)->increment('counter');
+        return redirect(route('words'));
     }
 }
+

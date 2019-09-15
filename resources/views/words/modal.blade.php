@@ -12,9 +12,10 @@
                 {{$word->rus}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Answered correctly</button>
+                <a href = '{{route('words.counter', $word->id)}}' class="btn btn-primary">Learn word</a>
             </div>
         </div>
     </div>
 </div>
+

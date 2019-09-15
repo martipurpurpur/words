@@ -1,4 +1,5 @@
 {{ csrf_field() }}
+<tr>
 <td>
     <label class="sr-only" for="termin">Termin</label>
     <input type="text" name="termin" class="form-control mb-2" id=termin">
@@ -18,3 +19,4 @@
 <td>
     <button type="submit" class="btn btn-primary">Submit</button>
 </td>
+</tr>

@@ -17,6 +17,7 @@ class CreateWordsTable extends Migration
             $table->bigIncrements('id');
             $table->string('eng')->unique();
             $table->string('rus');
+            $table->integer('counter')->default(1);
             $table->timestamps();
         });
     }

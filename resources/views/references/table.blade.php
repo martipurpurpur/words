@@ -20,7 +20,7 @@
                 <td>{{ $reference->termin }}</td>
                 <td>{{ $reference->definition }}</td>
                 <td>{{ $reference->signature }}</td>
-                <td><code>{{$reference->example}}</code></td>
+                <td>{{ $reference->example }}</td>
                 <td>
                     <div class="btn-group">
 
