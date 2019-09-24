@@ -3,7 +3,6 @@
 @section('title', 'Edit Function Reference')
 
 @section('content')
-
     <table class="table">
         <thead>
         <tr>

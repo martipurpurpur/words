@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Word;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class WordsController extends Controller
 {
@@ -12,7 +13,7 @@ class WordsController extends Controller
     {
 
         $words = DB::table('words')
-            ->orderByRaw('-LOG(1.0 - RAND())/ counter LIMIT 3')->get();
+            ->orderByRaw('-LOG(1.0 - RAND())/ counter LIMIT 25')->get(); // or 'counter * rand() desc limit 25'
         return view('words.index', ['words' => $words]);
 
     }
@@ -24,6 +25,14 @@ class WordsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'eng' => [
+                'required',
+                Rule::unique('words'),
+                'min:2',
+            ],
+            'rus' => 'required',
+        ]);
         $word = new Word();
         $word->fill($request->only(['rus', 'eng']));
         $word->save();
@@ -38,8 +47,8 @@ class WordsController extends Controller
 
     public function edit($word_id)
     {
-        $words = Word::find($word_id);
-        return view('words.edit', ['words' => $words]);
+        $word = Word::find($word_id);
+        return view('words.edit', ['word' => $word]);
     }
 
     public function update(Request $request, $word_id)

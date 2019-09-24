@@ -16,6 +16,15 @@
     <div class="row">
         <div class="content col-sm-8">
             <h1>@yield('title')</h1>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @yield('content')
         </div>
         <div class="sidebar col-sm-4">
