@@ -14,6 +14,12 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Answered correctly</button>
                 <a href = '{{route('words.counter', $word->id)}}' class="btn btn-primary">Learn word</a>
+
+                {{--
+                 <a href = '{{route('words.decrementCounter', $word->id)}}' class="btn btn-primary">Answered correctly</a>
+                <a href = '{{route('words.incrementCounter', $word->id)}}' class="btn btn-primary">Learn word</a>
+                --}}
+
             </div>
         </div>
     </div>

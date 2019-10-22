@@ -25,6 +25,10 @@ Route::delete('/words/delete/{id}', 'WordsController@delete')->name('words.delet
 Route::get('/words/edit/{id}', 'WordsController@edit')->name('words.edit');
 Route::put('/words/{id}', 'WordsController@update')->name('words.update');
 Route::get('/words/{id}', 'WordsController@counter')->name('words.counter');
+//Route::get('/words/increment', 'WordsController@incrementCounter')->name('words.increment');
+//Route::get('/words/decrement', 'WordsController@decrementCounter')->name('words.decrement');
+//Route::get('/words/updateIndex', 'WordsController@updateIndex')->name('words.updateIndex');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

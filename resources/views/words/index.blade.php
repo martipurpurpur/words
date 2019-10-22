@@ -20,3 +20,5 @@
        @include('words.modal')
     @endforeach
 @endsection
+   <a href = '{{ route('words') }}' class="btn btn-primary btn-sm">Update</a>
+
