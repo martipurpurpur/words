@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="*.js.flow" type="Flow" />
       <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="user" type="JSON" />
       <mapping pattern="MakeFile" type="PHP" />
       <mapping pattern="file" type="PLAIN_TEXT" />
     </extensionMap>
